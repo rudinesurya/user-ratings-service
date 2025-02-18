@@ -29,7 +29,7 @@ export class UserRatingsService {
             { $set: userRating },
             { new: true }
         ).exec();
-
+        
         if (!updatedRating) {
             throw new NotFoundException('Rating not found or you are not the owner');
         }

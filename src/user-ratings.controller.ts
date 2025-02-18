@@ -78,7 +78,7 @@ export class UserRatingsController {
             try {
                 const userRating = await this.userRatingsService.updateUserRating(updateParams.ratingId, updateParams.raterId, updateParams.updateData);
                 result = {
-                    status: HttpStatus.CREATED,
+                    status: HttpStatus.OK,
                     message: 'user_rating_update_success',
                     user_rating: userRating,
                     errors: null,
