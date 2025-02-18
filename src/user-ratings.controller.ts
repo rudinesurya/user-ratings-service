@@ -8,7 +8,7 @@ import { IUserRatingUpdateResponse } from './interfaces/user-rating-update-respo
 import { IUserRatingUpdate } from './interfaces/user-rating-update.interface';
 import { IUserRatingsDeleteResponse } from './interfaces/user-ratings-delete-response.interface';
 
-@Controller('users')
+@Controller('user_ratings')
 export class UserRatingsController {
     constructor(
         private readonly userRatingsService: UserRatingsService,
