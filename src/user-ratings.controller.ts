@@ -15,11 +15,13 @@ export class UserRatingsController {
     ) { }
 
     @MessagePattern('user_ratings_get_by_rated_user_id')
-    public async getUserRatingsByRatedUserId(ratedUserId: string): Promise<IUserRatingsSearchResponse> {
+    public async getUserRatingsByRatedUserId(data: {
+        ratedUserId: string;
+    }): Promise<IUserRatingsSearchResponse> {
         let result: IUserRatingsSearchResponse;
 
-        if (ratedUserId) {
-            const userRatings = await this.userRatingsService.getUserRatings(ratedUserId);
+        if (data.ratedUserId) {
+            const userRatings = await this.userRatingsService.getUserRatings(data.ratedUserId);
             result = {
                 status: HttpStatus.OK,
                 message: 'user_ratings_get_by_rated_user_id_success',
