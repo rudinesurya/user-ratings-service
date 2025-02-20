@@ -6,7 +6,7 @@ import { IUserRatingCreateResponse } from './interfaces/user-rating-create-respo
 import { IUserRating } from './interfaces/user-rating.interface';
 import { IUserRatingUpdateResponse } from './interfaces/user-rating-update-response.interface';
 import { IUserRatingUpdate } from './interfaces/user-rating-update.interface';
-import { IUserRatingsDeleteResponse } from './interfaces/user-ratings-delete-response.interface';
+import { IUserRatingDeleteResponse } from './interfaces/user-rating-delete-response.interface';
 
 @Controller('user_ratings')
 export class UserRatingsController {
@@ -109,8 +109,8 @@ export class UserRatingsController {
     public async deleteUserRating(params: {
         ratingId: string;
         raterId: string;
-    }): Promise<IUserRatingsDeleteResponse> {
-        let result: IUserRatingsDeleteResponse;
+    }): Promise<IUserRatingDeleteResponse> {
+        let result: IUserRatingDeleteResponse;
 
         if (params && params.ratingId && params.raterId) {
             try {
