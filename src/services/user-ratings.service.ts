@@ -53,7 +53,7 @@ export class UserRatingsService {
     // Retrieve all ratings for a given user (the rated user)
     public async getUserRatings(ratedUserId: string): Promise<IUserRating[]> {
         return this.userRatingModel
-            .find({ ratedUser: new Types.ObjectId(ratedUserId) })
+            .find({ rated_user: new Types.ObjectId(ratedUserId) })
             .exec();
     }
 }
