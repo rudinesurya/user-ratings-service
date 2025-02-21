@@ -15,13 +15,13 @@ export class UserRatingsController {
     ) { }
 
     @MessagePattern('user_ratings_get_by_rated_user_id')
-    public async getUserRatingsByRatedUserId(data: {
+    public async getUserRatingsByRatedUserId(params: {
         ratedUserId: string;
     }): Promise<IUserRatingsSearchResponse> {
         let result: IUserRatingsSearchResponse;
 
-        if (data.ratedUserId) {
-            const userRatings = await this.userRatingsService.getUserRatings(data.ratedUserId);
+        if (params.ratedUserId) {
+            const userRatings = await this.userRatingsService.getUserRatings(params.ratedUserId);
             result = {
                 status: HttpStatus.OK,
                 message: 'user_ratings_get_by_rated_user_id_success',
@@ -39,12 +39,12 @@ export class UserRatingsController {
     }
 
     @MessagePattern('user_rating_create')
-    public async createUserRating(userRatingParams: IUserRating): Promise<IUserRatingCreateResponse> {
+    public async createUserRating(params: { createData: IUserRating }): Promise<IUserRatingCreateResponse> {
         let result: IUserRatingCreateResponse;
 
-        if (userRatingParams) {
+        if (params && params.createData) {
             try {
-                const userRating = await this.userRatingsService.createUserRating(userRatingParams);
+                const userRating = await this.userRatingsService.createUserRating(params.createData);
                 result = {
                     status: HttpStatus.CREATED,
                     message: 'user_rating_create_success',
@@ -73,12 +73,12 @@ export class UserRatingsController {
     }
 
     @MessagePattern('user_rating_update')
-    public async updateUserRating(updateParams: { ratingId: string; raterId: string; updateData: IUserRatingUpdate }): Promise<IUserRatingUpdateResponse> {
+    public async updateUserRating(params: { ratingId: string; raterId: string; updateData: IUserRatingUpdate }): Promise<IUserRatingUpdateResponse> {
         let result: IUserRatingUpdateResponse;
 
-        if (updateParams && updateParams.ratingId && updateParams.raterId && updateParams.updateData) {
+        if (params && params.ratingId && params.raterId && params.updateData) {
             try {
-                const userRating = await this.userRatingsService.updateUserRating(updateParams.ratingId, updateParams.raterId, updateParams.updateData);
+                const userRating = await this.userRatingsService.updateUserRating(params.ratingId, params.raterId, params.updateData);
                 result = {
                     status: HttpStatus.OK,
                     message: 'user_rating_update_success',
