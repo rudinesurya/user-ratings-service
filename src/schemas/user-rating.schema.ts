@@ -26,7 +26,17 @@ export const UserRatingSchema = new mongoose.Schema<IUserRatingSchema>(
         comment: {
             type: String,
         },
-    }
+    },
+    {
+        toObject: {
+            virtuals: false,
+            versionKey: false,
+        },
+        toJSON: {
+            virtuals: false,
+            versionKey: false,
+        },
+    },
 );
 
 // Add a compound unique index to prevent duplicate ratings from the same rater for a given rated_user.
