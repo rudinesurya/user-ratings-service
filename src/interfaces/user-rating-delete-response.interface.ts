@@ -1,5 +1,5 @@
 export interface IUserRatingDeleteResponse {
     status: number;
-    message: string;
+    system_message: string;
     errors: { [key: string]: any } | null;
 }

@@ -37,7 +37,7 @@ export class UserRatingsService {
         return updatedRating;
     }
 
-    public async removeUserRating(ratingId: string, raterId: string): Promise<{ message: string }> {
+    public async removeUserRating(ratingId: string, raterId: string): Promise<{ system_message: string }> {
         const deletedRating = await this.userRatingModel.findOneAndDelete({
             _id: new Types.ObjectId(ratingId),
             rater: new Types.ObjectId(raterId),
@@ -47,7 +47,7 @@ export class UserRatingsService {
             throw new NotFoundException('Rating not found or you are not the owner');
         }
 
-        return { message: 'Rating removed successfully' };
+        return { system_message: 'Rating removed successfully' };
     }
 
     // Retrieve all ratings for a given user (the rated user)

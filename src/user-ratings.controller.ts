@@ -24,13 +24,13 @@ export class UserRatingsController {
             const userRatings = await this.userRatingsService.getUserRatings(params.ratedUserId);
             result = {
                 status: HttpStatus.OK,
-                message: 'user_ratings_get_by_rated_user_id_success',
+                system_message: 'user_ratings_get_by_rated_user_id_success',
                 user_ratings: userRatings,
             };
         } else {
             result = {
                 status: HttpStatus.BAD_REQUEST,
-                message: 'user_ratings_get_by_rated_user_id_bad_request',
+                system_message: 'user_ratings_get_by_rated_user_id_bad_request',
                 user_ratings: null,
             };
         }
@@ -47,14 +47,14 @@ export class UserRatingsController {
                 const userRating = await this.userRatingsService.createUserRating(params.createData);
                 result = {
                     status: HttpStatus.CREATED,
-                    message: 'user_rating_create_success',
+                    system_message: 'user_rating_create_success',
                     user_rating: userRating,
                     errors: null,
                 };
             } catch (e) {
                 result = {
                     status: HttpStatus.PRECONDITION_FAILED,
-                    message: 'user_rating_create_precondition_failed',
+                    system_message: 'user_rating_create_precondition_failed',
                     user_rating: null,
                     errors: e.errors,
                 };
@@ -63,7 +63,7 @@ export class UserRatingsController {
         } else {
             result = {
                 status: HttpStatus.BAD_REQUEST,
-                message: 'user_rating_create_bad_request',
+                system_message: 'user_rating_create_bad_request',
                 user_rating: null,
                 errors: null,
             };
@@ -81,14 +81,14 @@ export class UserRatingsController {
                 const userRating = await this.userRatingsService.updateUserRating(params.ratingId, params.raterId, params.updateData);
                 result = {
                     status: HttpStatus.OK,
-                    message: 'user_rating_update_success',
+                    system_message: 'user_rating_update_success',
                     user_rating: userRating,
                     errors: null,
                 };
             } catch (e) {
                 result = {
                     status: HttpStatus.PRECONDITION_FAILED,
-                    message: 'user_rating_update_precondition_failed',
+                    system_message: 'user_rating_update_precondition_failed',
                     user_rating: null,
                     errors: e.errors,
                 };
@@ -96,7 +96,7 @@ export class UserRatingsController {
         } else {
             result = {
                 status: HttpStatus.BAD_REQUEST,
-                message: 'user_rating_update_bad_request',
+                system_message: 'user_rating_update_bad_request',
                 user_rating: null,
                 errors: null,
             };
@@ -117,14 +117,14 @@ export class UserRatingsController {
                 await this.userRatingsService.removeUserRating(params.ratingId, params.raterId);
                 result = {
                     status: HttpStatus.OK,
-                    message: 'user_rating_delete_by_id_success',
+                    system_message: 'user_rating_delete_by_id_success',
                     errors: null,
                 };
 
             } catch (e) {
                 result = {
                     status: HttpStatus.PRECONDITION_FAILED,
-                    message: 'user_rating_delete_by_id_precondition_failed',
+                    system_message: 'user_rating_delete_by_id_precondition_failed',
                     errors: e.errors,
                 };
             }
@@ -132,7 +132,7 @@ export class UserRatingsController {
         else {
             result = {
                 status: HttpStatus.BAD_REQUEST,
-                message: 'user_rating_delete_by_id_bad_request',
+                system_message: 'user_rating_delete_by_id_bad_request',
                 errors: null,
             };
         }
