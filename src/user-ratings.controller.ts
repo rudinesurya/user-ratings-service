@@ -26,12 +26,14 @@ export class UserRatingsController {
                 status: HttpStatus.OK,
                 system_message: 'user_ratings_get_by_rated_user_id_success',
                 user_ratings: userRatings,
+                errors: null,
             };
         } else {
             result = {
                 status: HttpStatus.BAD_REQUEST,
                 system_message: 'user_ratings_get_by_rated_user_id_bad_request',
                 user_ratings: null,
+                errors: null,
             };
         }
 
