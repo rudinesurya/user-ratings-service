@@ -7,7 +7,7 @@ import { IUserRating } from './interfaces/user-rating.interface';
 import { IUserRatingUpdateResponse } from './interfaces/user-rating-update-response.interface';
 import { IUserRatingUpdate } from './interfaces/user-rating-update.interface';
 import { IUserRatingDeleteResponse } from './interfaces/user-rating-delete-response.interface';
-import logger from './services/logger';
+import logger from '@rudinesurya/logger';
 
 @Controller('user_ratings')
 export class UserRatingsController {
