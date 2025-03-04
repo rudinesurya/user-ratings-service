@@ -1,8 +1,7 @@
 import { ForbiddenException, Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
+import { IUserRating, IUserRatingUpdate } from '@rudinesurya/user-ratings-service-interfaces';
 import { FilterQuery, Model, Types } from 'mongoose';
-import { IUserRatingUpdate } from 'src/interfaces/user-rating-update.interface';
-import { IUserRating } from 'src/interfaces/user-rating.interface';
 
 @Injectable()
 export class UserRatingsService {

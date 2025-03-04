@@ -1,13 +1,8 @@
 import { Controller, HttpStatus } from '@nestjs/common';
 import { MessagePattern } from '@nestjs/microservices';
 import { UserRatingsService } from './services/user-ratings.service';
-import { IUserRatingsSearchResponse } from './interfaces/user-ratings-search-response.interface';
-import { IUserRatingCreateResponse } from './interfaces/user-rating-create-response.interface';
-import { IUserRating } from './interfaces/user-rating.interface';
-import { IUserRatingUpdateResponse } from './interfaces/user-rating-update-response.interface';
-import { IUserRatingUpdate } from './interfaces/user-rating-update.interface';
-import { IUserRatingDeleteResponse } from './interfaces/user-rating-delete-response.interface';
 import logger from '@rudinesurya/logger';
+import { IUserRatingsSearchResponse, IUserRating, IUserRatingCreateResponse, IUserRatingUpdate, IUserRatingUpdateResponse, IUserRatingDeleteResponse } from '@rudinesurya/user-ratings-service-interfaces';
 
 @Controller('user_ratings')
 export class UserRatingsController {
